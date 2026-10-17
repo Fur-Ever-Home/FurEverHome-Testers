@@ -1,0 +1,29 @@
+
+name: Testers CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Test repository check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check repository contents
+        run: |
+          echo "Testers repository is accessible."
+          echo "Automated test execution will be configured when the test framework is added."
